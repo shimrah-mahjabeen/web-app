@@ -1,0 +1,38 @@
+<div id="<%= dom_id profile %>" class="container">
+  <div class="row border-bottom pb-4 mb-4">
+    <div class="col-md-10">
+      <p>
+        <strong>Location:</strong>
+        <%= profile.location %>
+      </p>
+
+      <p>
+        <strong>Phone number:</strong>
+        <%= profile.phone_number %>
+      </p>
+
+      <p>
+        <strong>User:</strong>
+        <%= profile.user_id %>
+      </p>
+
+      <p>
+        <strong>Github username:</strong>
+        <%= profile.github_username %>
+      </p>
+
+      <p>
+        <strong>Skills:</strong>
+        <%= profile.skills.join(', ') %>
+      </p>
+    </div>
+
+    <div class="col-md-2">
+      <% if profile.image.attached? %>
+        <%= image_tag profile.image, class: "img-thumbnail rounded " %>
+      <% else %>
+        <p>No image uploaded.</p>
+      <% end %>
+    </div>
+  </div>
+</div>

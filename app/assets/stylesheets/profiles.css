@@ -1,0 +1,11 @@
+.form-inline {
+  display: flex;
+  flex-direction: column;
+}
+
+#search-results {
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+}

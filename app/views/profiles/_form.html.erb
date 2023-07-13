@@ -1,0 +1,44 @@
+<%= form_with(model: profile, class: "form") do |form| %>
+  <% if profile.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="px-4 mx-4">
+    <div class="form-group">
+      <%= form.label :location %>
+      <%= form.text_field :location, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :phone_number %>
+      <%= form.text_field :phone_number, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :user_id, style: "display: none;" %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    </div>
+
+
+    <div class="form-group">
+      <%= form.label :github_username %>
+      <%= form.text_field :github_username, class: "form-control", value: current_user.user_name%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :image %>
+      <%= form.file_field :image, class: "form-control-file" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Save", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
